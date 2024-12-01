@@ -6,6 +6,7 @@
 	import FadeInContainer from '../common/FadeInContainer.svelte';
 	import FlyInContainer from '../common/FlyInContainer.svelte';
 	import BioDock from './BioDock.svelte';
+	import { getProjects } from '../../../data/projects';
 
 	let examples = [
 		{ title: 'Example 1', description: 'This is the first example.' },
@@ -27,12 +28,14 @@
 </script>
 
 {#if hasMounted}
-	<div class="mx-auto mt-10 flex items-center h-screen w-[90%] flex-col gap-4 overflow-hidden text-white">
+	<div
+		class="mx-auto mt-10 flex h-screen w-[90%] flex-col items-center gap-4 overflow-hidden text-white"
+	>
 		<BioDock></BioDock>
 		<div
-			class="mb-20 grid flex-1 grid-cols-[repeat(auto-fill,minmax(460px,1fr))] overflow-y-auto p-4"
+			class="mb-20 grid w-full flex-1 grid-cols-[repeat(auto-fill,minmax(460px,1fr))] overflow-y-auto p-4"
 		>
-			{#each examples as example, idx}
+			{#each getProjects() as project, idx}
 				<FlyInContainer
 					delay={idx * 50}
 					classname="relative flex max-h-[477px] min-h-[477px] items-center justify-center rounded-l p-4 w-full h-full"
@@ -40,7 +43,7 @@
 					<div
 						class="h-[99%] w-[99%] rounded-md border-2 border-color transition-colors duration-75"
 					>
-						<ProjectItem></ProjectItem>
+						<ProjectItem {project}></ProjectItem>
 					</div>
 					<FadeInContainer delay={idx * 120} duration={150}>
 						<div class="absolute right-0 top-0 h-9 w-1 rounded-md bg-color"></div>
@@ -60,19 +63,19 @@
 
 <style global>
 	:global(::-webkit-scrollbar) {
-		width: 12px;
+		width: 8px;
 	}
 
 	:globlal(div::-webkit-scrollbar-track) {
-		background: #f1f1f1;
+		background: #f1f1f100;
 	}
 
 	:global(div::-webkit-scrollbar-thumb) {
-		background: #888;
+		background: var(--color);
 		border-radius: 6px;
 	}
 
 	:global(div::-webkit-scrollbar-thumb:hover) {
-		background: #555;
+		background: var(--accentColor);
 	}
 </style>
