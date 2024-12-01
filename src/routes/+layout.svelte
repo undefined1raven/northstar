@@ -5,8 +5,36 @@
 	import { screenSize } from '../stores/screenSize.svelte';
 	//@ts-ignore
 	import { debounce } from 'lodash-es';
+	import { getThemes } from '../data/themes';
+	import ThemeController from './components/common/ThemeController.svelte';
+	import { theme } from '../stores/theme.svelte';
 	onMount(() => {
 		if (typeof window !== 'undefined') {
+			const themes = getThemes();
+			const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const themeOverride = sessionStorage.getItem('theme');
+			if (!themeOverride) {
+				if (prefersDarkScheme) {
+					theme.set('dark');
+				} else {
+					theme.set('light');
+				}
+			} else {
+				if (themeOverride === 'dark' || themeOverride === 'light') {
+					theme.set(themeOverride);
+				} else {
+					theme.set('light');
+				}
+			}
+
+			theme.subscribe((value: string) => {
+				if (value === 'dark') {
+					globalStyle.set(themes.dark);
+				} else {
+					globalStyle.set(themes.light);
+				}
+			});
+
 			const handleResize = debounce(() => {
 				screenSize.set({
 					width: window.innerWidth,
@@ -31,13 +59,15 @@
 					}
 					document.documentElement.style.setProperty(`--${keys[ix]}`, value[key]);
 				}
-				document.body.style.background = `linear-gradient(252.37deg, #B7B2FA 0.87%, #9F99F4 51.96%, #A5A2D9 100%)`;
+				document.body.style.background = `linear-gradient(252.37deg, ${value.pageColor1} 0.87%, ${value.pageColor2} 51.96%, ${value.pageColor3} 100%)`;
 			});
 		}
 	});
 
 	let { children } = $props();
 </script>
+
+<ThemeController></ThemeController>
 
 {@render children()}
 

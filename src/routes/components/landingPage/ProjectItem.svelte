@@ -11,7 +11,7 @@
 	const typedProject = project as IProject;
 </script>
 
-<div class="flex h-full w-full flex-col gap-1 p-5">
+<div class="flex h-full overflow-y-auto w-full flex-col gap-1 p-5">
 	{#if typedProject.sourceCode || typedProject.liveDeployment || typedProject.documentationLink}
 		<div class="flex h-10 flex-row justify-start gap-3">
 			{#if typedProject.sourceCode}
@@ -52,11 +52,11 @@
 		<span class="text-3xl text-text">{typedProject.name}</span>
 	</div>
 	<div class="flex h-44">
-		<span class="text-text">{typedProject.description}</span>
+		<span class="text-text overflow-y-auto text-[18px]">{typedProject.description}</span>
 	</div>
 	<div class="flex flex-grow items-end justify-end">
 		<div
-			class="grid h-full w-full grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2"
+			class="grid h-full w-full overflow-y-auto grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2"
 			style="grid-auto-rows: auto;"
 		>
 			{#each typedProject.labels as label, idx}
