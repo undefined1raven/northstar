@@ -172,7 +172,7 @@ function getProjects(): IProject[] {
 		{
 			name: 'Gallek',
 			description:
-				'Gallek was inspired by the virtual photography collection made by one of my favorite designers - Ash Thorp. I wanted something similar that me and my friends could use to share our favorite photos and to create a common gallery with them. The webapp uses passkeys to create new accounts and to authenticate for a secure passowrd-free experience.',
+				'Gallek was inspired by the virtual photography collection made by one of my favorite designers - Ash Thorp. I wanted something similar that me and my friends could use to share our favorite photos and to create a common gallery with them. The web app uses passkeys to create new accounts and to authenticate for a secure passowrd-free experience.',
 			logo: GallekLogo,
 			logoProps: { classNames: 'w-12 h-12' },
 			startDate: '2021-01-01',
@@ -220,7 +220,7 @@ function getProjects(): IProject[] {
 		},
 		{
 			name: 'Dronebuzz',
-			description: `Dronebuzz is a mobile game where you're a controlling a drone and you have to survive as long as possible enemy drones while completing configurable objectives. The webapp is using a custom map made with MapTiles.`,
+			description: `Dronebuzz is a mobile game where you're a controlling a drone and you have to survive as long as possible enemy drones while completing configurable objectives. The web app is using a custom map made with MapTiles.`,
 			logo: DronebuzzLogo,
 			logoProps: { classNames: 'w-12 h-12 rounded-full' },
 			startDate: '2021-01-01',
