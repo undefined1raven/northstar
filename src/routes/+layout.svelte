@@ -50,7 +50,11 @@
 					'inactiveColor',
 					'accentColor',
 					'inactiveColor',
-					'inactiveTextColor'
+					'inactiveTextColor',
+					'purple',
+					'purpleText',
+					'deepBlueText',
+					'greenText'
 				];
 				for (let ix = 0; ix < keys.length; ix++) {
 					const key = keys[ix];

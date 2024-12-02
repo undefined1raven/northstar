@@ -42,7 +42,7 @@
 		<div class="grid flex-1 grid-cols-2 gap-2 border-r border-color pr-10 md:w-[20%]">
 			{#each knowledgeTags as tag, ix}
 				<FlyInContainer delay={15 * ix} classname="min-w-[50px]">
-					<div class="w-full select-none rounded-md bg-color20 p-1 text-[15px] text-text">{tag}</div>
+					<div class="w-full h-full text-center flex items-center justify-center select-none rounded-md bg-color20 p-1 text-[15px] text-text">{tag}</div>
 				</FlyInContainer>
 			{/each}
 		</div>
