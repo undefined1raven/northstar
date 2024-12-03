@@ -48,7 +48,7 @@
 		</FlyInContainer>
 		<h1 class="flex h-full w-full items-center text-center text-3xl text-text">Dominic Zlat</h1>
 	</div>
-	<FlyInContainer x={7} classname="max-w-[400px] text-left">
+	<FlyInContainer x={7} classname="text-left">
 		<span class="text-left text-[18px] text-text sm:text-[14px] md:text-[16px] lg:text-[18px]"
 			>I’m a passionate learner and developer, focused on building useful and beautiful web and
 			native Android applications. Over the past 5 years, I’ve worked with a wide range of

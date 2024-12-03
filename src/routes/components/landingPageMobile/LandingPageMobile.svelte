@@ -18,9 +18,7 @@
 		class="mx-auto mt-10 flex h-screen w-[98%] flex-col items-center gap-4 overflow-hidden text-white"
 	>
 		<BioDock></BioDock>
-		<div
-			class="mb-12 grid w-full flex-1 gap-4 grid-cols-1 overflow-y-auto"
-		>
+		<div class="grid mb-12 w-full flex-1 grid-cols-1 gap-4 overflow-y-auto">
 			{#each getProjects() as project, idx}
 				<FlyInContainer
 					delay={idx * 50}
