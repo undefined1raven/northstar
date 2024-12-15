@@ -5,13 +5,19 @@
 	import type { IProject } from '../../../data/projects';
 	import BookDeco from '../../deco/BookDeco.svelte';
 	import FlyInContainer from '../common/FlyInContainer.svelte';
+	import { replace } from 'lodash';
 	const iconClass = 'w-full h-full transition-colors text-color rounded-md p-1';
 	const buttonClass = 'w-10 w-8 transition-colors hover:bg-accent20  text-color rounded-md';
 	const { project } = $props();
 	const typedProject = project as IProject;
 </script>
 
-<div class="flex h-full w-full flex-col gap-1 overflow-y-auto p-5">
+<div
+	onclick={() => {
+		window.location.href = '/projects/' + typedProject.name.replace(' ', '-').toLowerCase();
+	}}
+	class="flex h-full w-full cursor-pointer flex-col gap-1 overflow-y-auto p-5"
+>
 	{#if typedProject.sourceCode || typedProject.liveDeployment || typedProject.documentationLink || project.status.label}
 		<div class="flex h-10 flex-row justify-start gap-3">
 			{#if typedProject.sourceCode}
@@ -45,8 +51,10 @@
 			{/if}
 			<div class="flex-end mx-auto flex w-full items-center justify-end text-right">
 				<div
-					style="background-color: {$globalStyle[project.status.color]}20; color: {$globalStyle[project.status.textColor]};"
-					class="flex select-none rounded-xl h-full w-52 items-center justify-center bg-black text-center"
+					style="background-color: {$globalStyle[project.status.color]}20; color: {$globalStyle[
+						project.status.textColor
+					]};"
+					class="flex h-full w-52 select-none items-center justify-center rounded-xl bg-black text-center"
 				>
 					{project.status.label}
 				</div>
